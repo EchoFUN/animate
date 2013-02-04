@@ -8,8 +8,18 @@
 
 	// 变量选取
 	var food = $('food'), mouse = $('mouse'), eye = $('eye');
-	
-	;
-	
+
+	var Move = XN.func.empty, mp = Move.prototype;
+	mp._horizontal = function() {
+
+	};
+	mp._vertical = function() {
+
+	};
+
+	mp._eated = function() {
+
+	};
+
 })();
 
