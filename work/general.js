@@ -9,17 +9,30 @@
 	// 变量选取
 	var food = $('food'), mouse = $('mouse'), eye = $('eye');
 
-	var Move = XN.func.empty, mp = Move.prototype;
+	var _eatting = false;
+
+	var Move = function() {
+		this._horizontal(function() {
+
+		});
+
+		this._vertical(t, b, c, d);
+	};
+	var mp = Move.prototype;
 	mp._horizontal = function() {
 
 	};
-	mp._vertical = function() {
 
+	mp._vertical = function(t, b, c, d) {
+		
+		return c * Math.sqrt(1 - ( t = t / d - 1) * t) + b;
 	};
 
 	mp._eated = function() {
+		_eatting = true;
 
 	};
 
+	new Move;
 })();
 
