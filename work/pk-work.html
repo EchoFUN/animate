@@ -72,38 +72,7 @@
 		<div id="food">
 			I am FOOD
 		</div>
-		<script src="jxn.js"></script>
-		<script>
-			var clicked = !1, food = jxn("#food"), flag = 1, times = 1, plusDelta = "+=50px", minusDelta = "-=50px";
-			jxn.delayDoOrEvent(function() {
-				clicked = !0;
-				var e = jxn("#mouse"), t = jxn("#eyes"), n = e.offset();
-				food.stop().clearQueue().animate({
-					top : n.top + 37,
-					left : n.left + 20,
-					fontSize : 14
-				}, 1e3, "easeOut", function() {
-					t.addClass("open"), e.animate({
-						height : "+=16px"
-					}, 200, function() {
-						food.hide()
-					}).animate({
-						height : "-=16px"
-					}, 200, function() {
-						t.removeClass("open"), e.find("span").node(2).html("good!"), t.html("^&nbsp;&nbsp;&nbsp;^")
-					})
-				})
-			}, 9, food, "click"), food.animate({
-				top : minusDelta,
-				left : plusDelta
-			}, 500, "easeIn", function() {
-				if (clicked)
-					return;
-				times++, food.animate({
-					top : flag > 0 ? plusDelta : minusDelta,
-					left : times / 10 % 2 < 1 ? plusDelta : minusDelta
-				}, 500, flag > 0 ? "easeIn" : "easeOut", arguments.callee), flag *= -1
-			});
-		</script>
+		<script src="http://s.xnimg.cn/n/core/base-all2.js"></script>
+		<script src="general.js" ></script>
 	</body>
 </html>
