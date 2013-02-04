@@ -6,7 +6,10 @@
 
 ;(function() {
 
+	// 变量选取
+	var food = $('food'), mouse = $('mouse'), eye = $('eye');
+	
 	;
-
+	
 })();
 
