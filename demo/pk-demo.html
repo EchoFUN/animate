@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body {font-family:'Microsoft Yahei',Tahoma,Verdana,STHeiTi,simsun,sans-serif;}
+    	#mouse {position:relative;color:red;text-align:center;font-size:30px;margin:0 auto;width:100px;border:2px solid red;margin-top:100px;border-radius:15px 15px 3px 3px;height:36px}
+        .thinking {position:absolute;border:1px solid red;font-size:14px}
+    	.small {right:-10px;top:-10px;width:10px;height:10px;line-height:10px;border-radius:5px}
+    	.medium{right:-30px;top:-30px;width:15px;height:15px;line-height:15px;border-radius:8px}
+    	.large {right:-75px;top:-75px;width:40px;height:40px;line-height:40px;border-radius:20px}
+    	#food {position:absolute;left:500px;top:300px;font-size:30px;cursor:pointer;color:green}
+        .open {border-bottom:2px solid red}
+    </style>
+</head>
+<body>
+    <div id="mouse">
+        <div id="eyes">-&nbsp;&nbsp;&nbsp;&nbsp;-</div>
+        <span class="thinking small">&nbsp;</span>
+        <span class="thinking medium">&nbsp;</span>
+        <span class="thinking large">food!</span>
+    </div>
+    <div id="food">I am FOOD</div>
+    <script src="jxn.js"></script>
+    <script>
+var clicked=!1,food=jxn("#food"),flag=1,times=1,plusDelta="+=50px",minusDelta="-=50px";jxn.delayDoOrEvent(function(){clicked=!0;var e=jxn("#mouse"),t=jxn("#eyes"),n=e.offset();food.stop().clearQueue().animate({top:n.top+37,left:n.left+20,fontSize:14},1e3,"easeOut",function(){t.addClass("open"),e.animate({height:"+=16px"},200,function(){food.hide()}).animate({height:"-=16px"},200,function(){t.removeClass("open"),e.find("span").node(2).html("good!"),t.html("^&nbsp;&nbsp;&nbsp;^")})})},9,food,"click"),food.animate({top:minusDelta,left:plusDelta},500,"easeIn",function(){if(clicked)return;times++,food.animate({top:flag>0?plusDelta:minusDelta,left:times/10%2<1?plusDelta:minusDelta},500,flag>0?"easeIn":"easeOut",arguments.callee),flag*=-1});
+    </script>
+</body>
+</html>
