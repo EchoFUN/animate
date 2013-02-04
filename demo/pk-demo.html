@@ -75,7 +75,8 @@
 		<script src="jxn.js"></script>
 		<script>
 			var clicked = !1, food = jxn("#food"), flag = 1, times = 1, plusDelta = "+=50px", minusDelta = "-=50px";
-			jxn.delayDoOrEvent(function() {
+			
+			/* jxn.delayDoOrEvent(function() {
 				clicked = !0;
 				var e = jxn("#mouse"), t = jxn("#eyes"), n = e.offset();
 				food.stop().clearQueue().animate({
@@ -93,14 +94,18 @@
 						t.removeClass("open"), e.find("span").node(2).html("good!"), t.html("^&nbsp;&nbsp;&nbsp;^")
 					})
 				})
-			}, 9, food, "click"), food.animate({
-				top : minusDelta,
-				left : plusDelta
+			}, 9, food, "click"); */
+			
+			food.animate({
+				// top : minusDelta,
+				// left : plusDelta
 			}, 500, "easeIn", function() {
 				if (clicked)
 					return;
-				times++, food.animate({
-					top : flag > 0 ? plusDelta : minusDelta,
+				times++;
+				
+				food.animate({
+					//top : flag > 0 ? plusDelta : minusDelta,
 					left : times / 10 % 2 < 1 ? plusDelta : minusDelta
 				}, 500, flag > 0 ? "easeIn" : "easeOut", arguments.callee), flag *= -1
 			});
